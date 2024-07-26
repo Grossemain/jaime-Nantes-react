@@ -21,9 +21,12 @@ const SideMenu = () => {
             <Nav.Link href="#">Ajouter un article</Nav.Link>
 
             <span>CATEGORIES</span>
-            <Nav.Link href="/admin/termcategories/index">Types de categories</Nav.Link>
-            <Nav.Link href="#">Toutes les categories</Nav.Link>
+            <span>Types de categories</span>
+            <Nav.Link href="/admin/termcategories/index">Tous les types de categories</Nav.Link>
             <Nav.Link href="/admin/termcategories/create">Ajouter un type de categorie</Nav.Link>
+            <span>Categories</span>
+            <Nav.Link href="/admin/categories/index">Toutes les categories</Nav.Link>
+            <Nav.Link href="/admin/categories/create">Ajouter une categorie</Nav.Link>
 
             <span>COMPTE</span>
             <Nav.Link href="#">Modifier son compte</Nav.Link>

@@ -3,19 +3,19 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 import { Link } from 'react-router-dom'
-import { termCategoryService } from '../../../_services/termcategories.service';
+import { categoryService } from '../../../_services/categories.service';
 
-const TermCategories = () => {
-    const [TermCategories, setTermCategories] = useState([])
+const Categories = () => {
+    const [Categories, setCategories] = useState([])
     const flag = useRef(false)
 
     // Récupération de la liste des term categories à l'affichage
     useEffect(() => {
         if(flag.current === false){
-            termCategoryService.getAllTermCategories()
+            categoryService.getAllCategories()
                 .then(res => {
                     // Liste dans le state
-                    setTermCategories(res.data)
+                    setCategories(res.data)
                 })
                 .catch(err => console.log(err))
         }
@@ -25,11 +25,11 @@ const TermCategories = () => {
     }, [])
 
     // Gestion du bouton de suppression d'un term categorry
-    const delTermCategory = (TermCategoryId) => {
-        termCategoryService.deleteTermCategory(TermCategoryId)
+    const delCategory = (CategoryId) => {
+        categoryService.deleteCategory(CategoryId)
             .then(res => {
                 // Mise à jour du state pour affichage
-                setTermCategories((current) => current.filter(TermCategory => TermCategory.id !== TermCategoryId))
+                setCategories((current) => current.filter(Category => Category.id !== CategoryId))
             })
             .catch(err => console.log(err))
     }
@@ -43,32 +43,36 @@ const TermCategories = () => {
                     <th>id</th>
                         <th>Nom</th>
                         <th>Description</th>
+                        <th>slug</th>
+                        <th>term cat ID</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {TermCategories.map((TermCategory) => (
-                            <tr key={TermCategory.id}>
-                                <td>{TermCategory.id}</td>
-                                <td>{TermCategory.term_category_name}</td>
-                                <td>{TermCategory.term_category_description}</td>
+                    {Categories.map((Category) => (
+                            <tr key={Category.id}>
+                                <td>{Category.id}</td>
+                                <td>{Category.category_name}</td>
+                                <td>{Category.category_description}</td>
+                                <td>{Category.category_slug}</td>
+                                <td>{Category.term_category_id}</td>
                                 <td>
                                 <span className="m-1">
                                     <Button
                                             variant="primary">
-                                            <Link className="text-light text-decoration-none"to={`/admin/termcategories/${TermCategory.id}`}>Voir</Link>
+                                            <Link className="text-light text-decoration-none"to={`/admin/categories/${Category.id}`}>Voir</Link>
                                         </Button>
                                     </span>
                                     <span className="m-1">
                                     <Button
                                             variant="warning">
-                                            <Link className="text-light text-decoration-none"to={`/admin/termcategories/edit/${TermCategory.id}`}>Editer</Link>
+                                            <Link className="text-light text-decoration-none"to={`/admin/categories/edit/${Category.id}`}>Edit</Link>
                                         </Button>
                                     </span>
                                     <span className="m-1">
                                         <Button
                                             variant="danger"
-                                            onClick={() => delTermCategory(TermCategory.id)}
+                                            onClick={() => delCategory(Category.id)}
                                         >
                                             Supprimer
                                         </Button>
@@ -84,4 +88,4 @@ const TermCategories = () => {
     );
 };
 
-export default TermCategories;
+export default Categories;

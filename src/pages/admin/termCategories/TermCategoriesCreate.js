@@ -33,7 +33,7 @@ const TermCategoryCreate = () => {
                 </div>
                 <div className="group">
                     <label htmlFor="term_category_description">Description</label>
-                    <input type="text" name="term_category_description" onChange={onChange} />
+                    <input type="textarea" name="term_category_description" onChange={onChange} />
                 </div>
                 <div className="group">
                     <button>Ajouter</button>

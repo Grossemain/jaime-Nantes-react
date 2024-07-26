@@ -37,11 +37,11 @@ let updateTermCategory = (termCategory) => {
 
 /**
  * Suppression d'un term categories
- * @param {number} uid
+ * @param {number} TCid
  * @returns {Promise}
  */
-let deleteTermCategory = (uid) => {
-  return Axios.delete("/api/termcategories/" + uid);
+let deleteTermCategory = (TCid) => {
+  return Axios.delete("/api/termcategories/" + TCid);
 };
 
 // Déclaration des services pour import
