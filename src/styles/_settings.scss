@@ -4,7 +4,7 @@ $primary: rgb(13, 110, 253);
 $color-1: #c71c1c;
 $color-2: salmon;
 $color-3: #282c34;
-$white: rgb(243, 243, 243);
+$white: #fff;
 
 @mixin verticalCenter {
   display: flex;
@@ -26,5 +26,7 @@ body {
 li {
   list-style-type: none;
 }
+
+
 
 

@@ -12,7 +12,7 @@ const SideMenu = () => {
         <Col>
           <Nav defaultActiveKey="/home" className="flex-column">
             <Nav.Link href="/admin/dashboard">DASHBOARD</Nav.Link>
-            <Nav.Link href="#">Voir le site</Nav.Link>
+            <Nav.Link href="/home">Voir le site</Nav.Link>
             <span>LIEUX</span>
             <Nav.Link href="#">Tous les lieux</Nav.Link>
             <Nav.Link href="#">Ajouter un lieu</Nav.Link>
@@ -21,9 +21,9 @@ const SideMenu = () => {
             <Nav.Link href="#">Ajouter un article</Nav.Link>
 
             <span>CATEGORIES</span>
-            <Nav.Link href="#">Types de categories</Nav.Link>
+            <Nav.Link href="/admin/termcategories/index">Types de categories</Nav.Link>
             <Nav.Link href="#">Toutes les categories</Nav.Link>
-            <Nav.Link href="#">Ajouter un type de categorie</Nav.Link>
+            <Nav.Link href="/admin/termcategories/create">Ajouter un type de categorie</Nav.Link>
 
             <span>COMPTE</span>
             <Nav.Link href="#">Modifier son compte</Nav.Link>

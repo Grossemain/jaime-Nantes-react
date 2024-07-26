@@ -2,8 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+
 
 import { useNavigate } from "react-router-dom";
 import { accountService } from "../../_services/account.service";
@@ -29,26 +29,21 @@ const Header = () => {
               navbarScroll
             >
               <Nav.Link href="/home">Accueil</Nav.Link>
-              <NavDropdown title="Livres" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/admin/books/index">
-                  Liste des Livres
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/admin/books/create">
-                  Ajout de Livre
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="Annonces" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/admin/adverts/index">
-                  Liste des annonces
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="Compte" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="/auth/login">Connection</NavDropdown.Item>
-                <NavDropdown.Item href="/register">
-                  Créer compte
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Button variant="dark" onClick={logout} >Deconnection</Button>
+              <Nav.Link href="/#">Monuments</Nav.Link>
+              <Nav.Link href="/#">Musées</Nav.Link>
+              <Nav.Link href="/#">Boutiques</Nav.Link>
+              <Nav.Link href="/#">Sortir</Nav.Link>
+              <div>|</div>
+              <Nav.Link href="/#">Visiter</Nav.Link>
+              <Nav.Link href="/#">Art</Nav.Link>
+              <Nav.Link href="/#">Blog</Nav.Link>
+              <div>|</div>
+              <Nav.Link href="/#">Carte</Nav.Link>
+              <div>
+                <Button variant="dark" onClick={logout}>
+                  Deconnection
+                </Button>
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>

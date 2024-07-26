@@ -4,8 +4,7 @@ const Logo = () => {
   return (
     <div className="logo">
       {/* Les images importées depuis la balise IMG sont accessibles dans "public" */}
-      <img src="./logo-jaimenantes-site.png" alt="logo j'aime Nantes" />
-      <span>J'aime Nantes</span>
+      <img src="./logo-jaimenantes-75px.png" alt="logo j'aime Nantes" />
     </div>
   );
 };
