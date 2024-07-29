@@ -46,6 +46,12 @@ const CategoryCreate = () => {
           <input type="text" name="category_slug" onChange={onChange} />
         </div>
         <div className="group">
+          <label htmlFor="term_category_id">Article</label>
+          <input type="radio" name="term_category_id" value="1" onChange={onChange} />
+          <label htmlFor="term_category_id">Lieu</label>
+          <input type="radio" name="term_category_id" value="2" onChange={onChange} />
+        </div>
+        <div className="group">
           <button>Ajouter</button>
         </div>
       </form>

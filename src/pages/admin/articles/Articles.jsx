@@ -44,6 +44,7 @@ const Articles = () => {
                         <th>Title</th>
                         <th>slug</th>
                         <th>image</th>
+                        <th>Id term cat</th>
                         <th>Créer le</th>
                         <th>Actions</th>
                     </tr>
@@ -55,6 +56,7 @@ const Articles = () => {
                                 <td>{Article.title}</td>
                                 <td>{Article.slug}</td>
                                 <td>{Article.image}</td>
+                                <td>{Article.term_category_id}</td>
                                 <td>{Article.created_at}</td>
                                 <td>
                                 <span className="m-1">

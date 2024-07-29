@@ -50,6 +50,10 @@ const ArticleCreate = () => {
           <label htmlFor="image">Image</label>
           <input type="text" name="image" onChange={onChange} />
         </div>
+        <div className="group">
+          <label htmlFor="term_category_id">Article</label>
+          <input type="radio" name="term_category_id" value="1" onChange={onChange} />
+        </div>
 
         {/* <div className="m-4 bg-primary"><ImageUpload /></div> */}
 
