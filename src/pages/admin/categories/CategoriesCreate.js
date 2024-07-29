@@ -45,22 +45,6 @@ const CategoryCreate = () => {
           <label htmlFor="category_slug">Slug</label>
           <input type="text" name="category_slug" onChange={onChange} />
         </div>
-
-        {/*A FAIRE POUR AFFICHER LES BTN RADIO AVEC LE NOM DES TERM CAT */
-        /* <div className="group">
-          {['radio'].map((category) => (
-            <div key={`{category.id}`} className="mb-3">
-              <Form.Check
-                inline
-                label="1"
-                name="group1"
-                type="radio"
-                id="inline-radio-1"
-                onChange={onChange}
-              />
-            </div>
-          ))}
-        </div> */}
         <div className="group">
           <button>Ajouter</button>
         </div>

@@ -4,7 +4,8 @@ import { ALayout, Dashboard } from '../admin'
 //modifier cette ligne pour Article, Places, Categories, TermCategories
 import {TermCategories,TCAdd,TCEdit} from '../admin/termCategories'
 import {Categories,CAdd,CEdit} from '../admin/categories'
-// import { User, UEdit, UAdd } from '../admin/user'
+import {Articles,AAdd} from '../admin/articles'
+import { User, UEdit} from '../admin/user'
 
 import Error from '../../_utils/Error'
 
@@ -14,11 +15,10 @@ const AdminRouter = () => {
             <Route element={<ALayout/>}>
                 <Route index element={<Dashboard/>}/>
                 <Route path="dashboard" element={<Dashboard/>}/>
-                {/* <Route path="users">
+                <Route path="users">
                     <Route path="index" element={<User/>}/>
                     <Route path="edit/:uid" element={<UEdit/>}/>
-                    <Route path="add" element={<UAdd/>}/>
-                </Route> */}
+                </Route>
                 <Route path="termcategories">
                     <Route path="index" element={<TermCategories/>}/>
                     <Route path="/termcategories/create" element={<TCAdd/>}/>
@@ -28,6 +28,11 @@ const AdminRouter = () => {
                     <Route path="index" element={<Categories/>}/>
                     <Route path="/categories/create" element={<CAdd/>}/>
                     <Route path="/categories/edit/:Cid" element={<CEdit/>}/>
+                </Route>
+                <Route path="articles">
+                    <Route path="index" element={<Articles/>}/>
+                    <Route path="/articles/create" element={<AAdd/>}/>
+                    {/* <Route path="/categories/edit/:Cid" element={<CEdit/>}/> */}
                 </Route>
 
                 <Route path="*" element={<Error/>}/>
