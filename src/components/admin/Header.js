@@ -29,14 +29,13 @@ const Header = () => {
               navbarScroll
             >
               <Nav.Link href="/home">Accueil</Nav.Link>
-              <Nav.Link href="/#">Monuments</Nav.Link>
-              <Nav.Link href="/#">Musées</Nav.Link>
-              <Nav.Link href="/#">Boutiques</Nav.Link>
-              <Nav.Link href="/#">Sortir</Nav.Link>
+              <Nav.Link href="/monuments">Monuments</Nav.Link>
+              <Nav.Link href="/musees">Musées</Nav.Link>
+              <Nav.Link href="/boutiques">Boutiques</Nav.Link>
+              <Nav.Link href="/sortir">Sortir</Nav.Link>
               <div>|</div>
-              <Nav.Link href="/#">Visiter</Nav.Link>
-              <Nav.Link href="/#">Art</Nav.Link>
-              <Nav.Link href="/#">Blog</Nav.Link>
+              <Nav.Link href="/visiter">Visiter</Nav.Link>
+              <Nav.Link href="/art">Art</Nav.Link>
               <div>|</div>
               <Nav.Link href="/#">Carte</Nav.Link>
               <div>

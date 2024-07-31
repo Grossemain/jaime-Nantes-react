@@ -6,6 +6,8 @@ import { Layout, Home } from '../../pages/public/'
 import Categories from '../../pages/public/categories/Categories'
 import Error from '../../_utils/Error'
 import Articles from '../../pages/public/articles/Articles';
+import { Monuments, Musees, Boutiques } from '.';
+import { Sortir, Visiter, Art } from '.';
 
 const PublicRouter = () => {
     return (
@@ -16,7 +18,13 @@ const PublicRouter = () => {
             <Route path="categories" element={<Categories/>} />
             <Route path="articles" element={<Articles/>} />
             <Route path="/articles/:Aid" element={<Articles/>}/>
+            <Route path="monuments" element={<Monuments/>} />
+            <Route path="musees" element={<Musees/>} />
+            <Route path="boutiques" element={<Boutiques/>} />
 
+            <Route path="sortir" element={<Sortir/>} />
+            <Route path="visiter" element={<Visiter/>} />
+            <Route path="art" element={<Art/>} />
 
             <Route path="*" element={<Error />} />
           </Route>
