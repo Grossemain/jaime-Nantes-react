@@ -1,64 +1,121 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
-import { articleService } from "../../../_services";
-
-// import ImageUpload from '../../../components/admin/ImageUpload';
+import axios from "axios";
 
 const ArticleCreate = () => {
-  const [article, setArticle] = useState([]);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // Gestion de la modification des champs du formulaire
-  const onChange = (e) => {
-    setArticle({
-      ...article,
-      [e.target.name]: e.target.value,
-    });
+  const [title, setTitle] = useState("");
+  const [h1_title, setH1Title] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+  const [slug, setSlug] = useState("");
+  const [category_id, setCategoryId] = useState("");
+  const [validationError, setValidationError] = useState({});
+  const [articles, setArticles] = useState([]); // State to hold articles
+
+  // Fetch articles (categories) from API
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/categories') // Adjust the API endpoint as needed
+      .then(response => {
+        setArticles(response.data);
+      })
+      .catch(error => {
+        console.error("There was an error fetching the categories!", error);
+      });
+  }, []);
+
+  const changeHandler = (event) => {
+    setImage(event.target.files[0]);
   };
 
   // Gestion de la soumission du formulaire
-  const onSubmit = (e) => {
+  const addArticle = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
 
-    articleService
-      .addArticle(article)
-      .then((res) => navigate("../index"))
-      .catch((err) => console.log(err));
+    formData.append("title", title);
+    formData.append("h1_title", h1_title);
+    formData.append("content", content);
+    formData.append("image", image);
+    formData.append("slug", slug);
+    formData.append("category_id", category_id);
+
+    await axios
+      .post(`http://127.0.0.1:8000/api/articles`, formData)
+      .then(() => {
+        navigate("../index");
+      })
+      .catch(({ response }) => {
+        if (response.status === 422) {
+          setValidationError(response.data.errors);
+        }
+      });
   };
 
   return (
     <div className="ArticleEdit">
       Article Add
-      <form onSubmit={onSubmit}>
+      <form onSubmit={addArticle}>
         <div className="group">
-          <label htmlFor="nom">Title</label>
-          <input type="text" name="title" onChange={onChange} />
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
         </div>
         <div className="group">
-          <label htmlFor="nom">Titre H1</label>
-          <input type="text" name="h1_title" onChange={onChange} />
+          <label htmlFor="h1_title">Titre H1</label>
+          <input
+            type="text"
+            name="h1_title"
+            value={h1_title}
+            onChange={(event) => setH1Title(event.target.value)}
+          />
         </div>
         <div className="group">
-          <label htmlFor="article_description">Contenu</label>
-          <input type="textarea" name="content" onChange={onChange} />
+          <label htmlFor="content">Contenu</label>
+          <textarea
+            name="content"
+            value={content}
+            onChange={(event) => setContent(event.target.value)}
+          />
         </div>
         <div className="group">
           <label htmlFor="slug">Slug</label>
-          <input type="text" name="slug" onChange={onChange} />
+          <input
+            type="text"
+            name="slug"
+            value={slug}
+            onChange={(event) => setSlug(event.target.value)}
+          />
         </div>
         <div className="group">
           <label htmlFor="image">Image</label>
-          <input type="text" name="image" onChange={onChange} />
+          <input type="file" name="image" onChange={changeHandler} />
         </div>
-        <div className="group">
-          <label htmlFor="term_category_id">Article</label>
-          <input type="radio" name="term_category_id" value="1" onChange={onChange} />
-        </div>
+        
+        {articles.map((article) => (
+          <div key={article.id} className="mb-3">
+            {article.term_category_id == 2 ? (
+            <Form.Check
+              inline
+              label={article.category_name}
+              name="category_id"
+              type="radio"
+              id={`inline-radio-${article.id}`}
+              value={article.id}
+              onChange={(event) => setCategoryId(event.target.value)}
+            />
+          ) : null}
+          </div>
+        ))}
 
-        {/* <div className="m-4 bg-primary"><ImageUpload /></div> */}
-
         <div className="group">
-          <button>Ajouter</button>
+          <button type="submit">Ajouter</button>
         </div>
       </form>
     </div>

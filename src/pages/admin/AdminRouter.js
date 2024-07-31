@@ -5,6 +5,7 @@ import { ALayout, Dashboard } from '../admin'
 import {TermCategories,TCAdd,TCEdit} from '../admin/termCategories'
 import {Categories,CAdd,CEdit} from '../admin/categories'
 import {Articles,AAdd} from '../admin/articles'
+import {Places,PAdd} from '../admin/places'
 import { User, UEdit} from '../admin/user'
 
 import Error from '../../_utils/Error'
@@ -32,6 +33,11 @@ const AdminRouter = () => {
                 <Route path="articles">
                     <Route path="index" element={<Articles/>}/>
                     <Route path="/articles/create" element={<AAdd/>}/>
+                    {/* <Route path="/categories/edit/:Cid" element={<CEdit/>}/> */}
+                </Route>
+                <Route path="places">
+                    <Route path="index" element={<Places/>}/>
+                    <Route path="/places/create" element={<PAdd/>}/>
                     {/* <Route path="/categories/edit/:Cid" element={<CEdit/>}/> */}
                 </Route>
 

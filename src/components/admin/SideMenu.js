@@ -15,8 +15,8 @@ const SideMenu = () => {
             <Nav.Link href="/home">Voir le site</Nav.Link>
 
             <span>LIEUX</span>
-            <Nav.Link href="#">Tous les lieux</Nav.Link>
-            <Nav.Link href="#">Ajouter un lieu</Nav.Link>
+            <Nav.Link href="/admin/places/index">Tous les lieux</Nav.Link>
+            <Nav.Link href="/admin/places/create">Ajouter un lieu</Nav.Link>
 
             <span>ARTICLES</span>
             <Nav.Link href="/admin/articles/index">Tous les articles</Nav.Link>

@@ -3,19 +3,19 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 import { Link } from 'react-router-dom'
-import { articleService } from '../../../_services/articles.service';
+import { placeService } from '../../../_services/place.service';
 
-const Articles = () => {
-    const [Articles, setArticles] = useState([])
+const Places = () => {
+    const [Places, setPlaces] = useState([])
     const flag = useRef(false)
 
     // Récupération de la liste des articles à l'affichage
     useEffect(() => {
         if(flag.current === false){
-            articleService.getAllArticles()
+            placeService.getAllPlaces()
                 .then(res => {
                     // Liste dans le state
-                    setArticles(res.data)
+                    setPlaces(res.data)
                 })
                 .catch(err => console.log(err))
         }
@@ -25,11 +25,11 @@ const Articles = () => {
     }, [])
 
     // Gestion du bouton de suppression d'un article
-    const delArticle = (ArticleId) => {
-        articleService.deleteArticle(ArticleId)
+    const delPlace = (PlaceId) => {
+        placeService.deletePlace(PlaceId)
             .then(res => {
                 // Mise à jour du state pour affichage
-                setArticles((current) => current.filter(Article => Article.id !== ArticleId))
+                setPlaces((current) => current.filter(Place => Place.id !== PlaceId))
             })
             .catch(err => console.log(err))
     }
@@ -41,40 +41,42 @@ const Articles = () => {
                 <thead>
                     <tr>
                     <th>id</th>
-                        <th>Title</th>
+                        <th>name</th>
                         <th>slug</th>
                         <th>image</th>
+                        <th>adresse</th>
                         <th>Id cat</th>
                         <th>Créer le</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {Articles.map((Article) => (
-                            <tr key={Article.id}>
-                                <td>{Article.id}</td>
-                                <td>{Article.title}</td>
-                                <td>{Article.slug}</td>
-                                <td>{Article.image}</td>
-                                <td>{Article.category_id}</td>
-                                <td>{Article.created_at}</td>
+                    {Places.map((Place) => (
+                            <tr key={Place.id}>
+                                <td>{Place.id}</td>
+                                <td>{Place.name}</td>
+                                <td>{Place.slug}</td>
+                                <td>{Place.image}</td>
+                                <td>{Place.adresse}</td>
+                                <td>{Place.category_id}</td>
+                                <td>{Place.created_at}</td>
                                 <td>
                                 <span className="m-1">
                                     <Button
                                             variant="primary">
-                                            <Link className="text-light text-decoration-none"to={`/admin/articles/${Article.id}`}>Voir</Link>
+                                            <Link className="text-light text-decoration-none"to={`/admin/articles/${Place.id}`}>Voir</Link>
                                         </Button>
                                     </span>
                                     <span className="m-1">
                                     <Button
                                             variant="warning">
-                                            <Link className="text-light text-decoration-none"to={`/admin/articles/edit/${Article.id}`}>Edit</Link>
+                                            <Link className="text-light text-decoration-none"to={`/admin/articles/edit/${Place.id}`}>Edit</Link>
                                         </Button>
                                     </span>
                                     <span className="m-1">
                                         <Button
                                             variant="danger"
-                                            onClick={() => delArticle(Article.id)}
+                                            onClick={() => delPlace(Place.id)}
                                         >
                                             Supprimer
                                         </Button>
@@ -90,4 +92,4 @@ const Articles = () => {
     );
 };
 
-export default Articles;
+export default Places;

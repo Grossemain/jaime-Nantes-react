@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom"
 import { Layout, Home } from '../../pages/public/'
 import Categories from '../../pages/public/categories/Categories'
 import Error from '../../_utils/Error'
+import Articles from '../../pages/public/articles/Articles';
 
 const PublicRouter = () => {
     return (
@@ -13,6 +14,9 @@ const PublicRouter = () => {
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
             <Route path="categories" element={<Categories/>} />
+            <Route path="articles" element={<Articles/>} />
+            <Route path="/articles/:Aid" element={<Articles/>}/>
+
 
             <Route path="*" element={<Error />} />
           </Route>

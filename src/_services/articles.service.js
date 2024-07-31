@@ -26,6 +26,17 @@ let addArticle = (article) => {
   return Axios.post("/api/articles", article);
 };
 
+
+/**
+ * Ajout d'un article via formData
+ * @param {number} formData
+ * @returns {Promise}
+ */
+let addArticleFormData = (formData) => {
+  return Axios.post("/api/articles", formData);
+
+}
+
 /**
  * Mise à jour d'un article
  * @param {number} article
@@ -51,4 +62,5 @@ export const articleService = {
   addArticle,
   updateArticle,
   deleteArticle,
+  addArticleFormData,
 };
