@@ -16,7 +16,7 @@ const PlacesCard = ({ place }) => {
                         <Card.Text><span className='bg-warning rounded-pill p-2'>{place.slug}</span></Card.Text>
                         <Card.Text>site web : <a href={`${place.web_site}`}>{place.name} </a></Card.Text>
                         <Button variant="primary">
-                            <Link className="text-light text-decoration-none"to={`/articles/${place.id}`}>Voir</Link>
+                            <Link className="text-light text-decoration-none"to={`/places/${place.id}`}>Voir</Link>
                         </Button>
                       </Card.Body>
                     </Card>

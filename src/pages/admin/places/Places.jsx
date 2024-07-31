@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 import { Link } from 'react-router-dom'
-import { placeService } from '../../../_services/place.service';
+import { placeService } from '../../../_services/places.service';
 
 const Places = () => {
     const [Places, setPlaces] = useState([])

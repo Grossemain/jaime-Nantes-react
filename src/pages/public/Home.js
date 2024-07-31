@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Banniere from '../../components/public/Banniere';
 
 
-
 export class Home extends Component {
   render() {
     return (
@@ -18,6 +17,8 @@ export class Home extends Component {
             <li>Les visites et sorties incontournables</li>
             <li>Vos boutiques souvenis préférées</li>
           </ul>
+
+
         </div>
     );
   }

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
 
 import PlacesCard from "../places/PlacesCard"
-import { placeService } from '../../../_services/place.service';
+import { placeService } from '../../../_services/places.service';
 
 const Places = () => {
   const [Places, setPlaces] = useState([])

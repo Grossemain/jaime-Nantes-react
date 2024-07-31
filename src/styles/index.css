@@ -21,4 +21,7 @@ li {
   margin-top: 40px;
   background-color: rgb(201, 209, 209);
   border-radius: 10px;
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */
+
+#map { height: 180px; }
