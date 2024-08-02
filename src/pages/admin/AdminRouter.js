@@ -4,7 +4,7 @@ import { ALayout, Dashboard } from '../admin'
 //modifier cette ligne pour Article, Places, Categories, TermCategories
 import {TermCategories,TCAdd,TCEdit} from '../admin/termCategories'
 import {Categories,CAdd,CEdit} from '../admin/categories'
-import {Articles,AAdd} from '../admin/articles'
+import {Articles, AAdd} from '../admin/articles'
 import {Places,PAdd} from '../admin/places'
 import { User, UEdit} from '../admin/user'
 
@@ -33,6 +33,9 @@ const AdminRouter = () => {
                 <Route path="articles">
                     <Route path="index" element={<Articles/>}/>
                     <Route path="/articles/create" element={<AAdd/>}/>
+                    {/* <Route path="/articles/teste" element={<TestAxios/>}/> */}
+
+
                     {/* <Route path="/categories/edit/:Cid" element={<CEdit/>}/> */}
                 </Route>
                 <Route path="places">

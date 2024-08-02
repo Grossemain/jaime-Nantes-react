@@ -1,4 +1,6 @@
 import Axios from "./caller.service";
+import AxiosServ from "./axios.service";
+
 
 /**
  * Récupératoin de la liste des articles
@@ -26,16 +28,30 @@ let addArticle = (article) => {
   return Axios.post("/api/articles", article);
 };
 
-
 /**
- * Ajout d'un article via formData
- * @param {number} formData
+ * Ajout d'un article avec formData
+ * @param {Object} article
  * @returns {Promise}
  */
-let addArticleFormData = (formData) => {
-  return Axios.post("/api/articles", formData);
+let addArticleFormData = (article) => {
+  let formData = new FormData();
+  for (let key in article) {
+    formData.append(key, article[key]);
+  }
+  const fileInput = document.getElementById('fileInput');
 
-}
+
+  formData.append('title','title');
+  formData.append('h1_title', 'h1_title');
+  formData.append('content', 'content');
+  formData.append("image", fileInput.files[0]);
+  formData.append('slug', 'slug');
+  formData.append('category_id', 'category_id');
+
+  return AxiosServ.post("/api/articles", formData);
+};
+
+
 
 /**
  * Mise à jour d'un article
@@ -60,7 +76,7 @@ export const articleService = {
   getAllArticles,
   getArticle,
   addArticle,
+  addArticleFormData,
   updateArticle,
   deleteArticle,
-  addArticleFormData,
 };

@@ -11,4 +11,3 @@ export { default as Monuments } from './places/Monuments'
 export { default as Musees } from './places/Musees'
 export { default as Boutiques } from './places/Boutiques'
 
-
